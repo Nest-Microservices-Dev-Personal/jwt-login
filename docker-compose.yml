@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0.21
+    container_name: nest-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    image: node:20-alpine
+    container_name: nest-app
+    working_dir: /usr/src/app
+    environment:
+      MONGO_USERNAME: ${MONGO_USERNAME}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_HOST: mongodb
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+    volumes:
+      - .:/usr/src/app 
+    ports:
+      - "${PORT}:${PORT}"
+    depends_on:
+      - mongodb
+    command: ["npm", "install", "--silent"]
+    entrypoint: ["npm", "run", "start"]
+
+volumes:
+  mongo_data:
+    driver: local
