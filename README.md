@@ -35,7 +35,7 @@ docker-compose down
 
 ### Prerequisites
 
-- Node.js V.18
+- Node.js V.20
   
 ### Running the Application
 
