@@ -10,7 +10,7 @@
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/lunchshift.git
+   git clone https://github.com/Nest-Microservices-Dev-Personal/jwt-login.git
    ```
 
 2. Set up environment variables (create a .env file based on .env.example if available).
@@ -42,7 +42,7 @@ docker-compose down
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/lunchshift.git
+   git clone https://github.com/Nest-Microservices-Dev-Personal/jwt-login.git
    ```
 2. Project setup
 
@@ -76,6 +76,10 @@ docker-compose down
     # test coverage
     $ yarn run test:cov
     ```
+### Swagger documentation
+
+You can see the API Documentacion here: 
+http://localhost:3000/api#/
 
 ## License
 
